@@ -1,8 +1,11 @@
 require 'httparty'
 require 'json'
+require './lib/roadmap.rb'
 
 class Kele
   include HTTParty
+  include Roadmap
+
   def initialize(email, password)
     response = self.class.post(bloc_api_url("sessions"), body: {"email": email, "password": password} )
     #puts response.code
