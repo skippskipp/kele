@@ -34,6 +34,11 @@ class Kele
     response = self.class.post(bloc_api_url("messages"), body: {"sender": sender_email, "recipient_id": recipient_id, "subject": subject, "stripped-text": message}, headers: {"authorization" => @auth_token })
     puts response
   end
+  
+  def create_submissions(checkpoint_id, enrollment_id, assignment_branch, assignment_commit_link, comment)
+    response = self.class.post(bloc_api_url("checkpoint_submissions"), body: {"checkpoint_id": checkpoint_id, "enrollment_id": enrollment_id, "assignment_branch": assignment_branch, "assignment_commit_link": assignment_commit_link, "comment": comment}, headers: {"authorization" => @auth_token})
+    puts response
+  end
 
   private
 
