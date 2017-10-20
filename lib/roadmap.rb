@@ -1,6 +1,3 @@
-require 'HTTParty'
-require 'json'
-
 module Roadmap
   include HTTParty
   def get_roadmap(roadmap_id)
